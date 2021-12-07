@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Airport.BLL/1.0.0": {
+        "dependencies": {
+          "Airport.Models": "1.0.0"
+        },
+        "runtime": {
+          "Airport.BLL.dll": {}
+        }
+      },
+      "Airport.Models/1.0.0": {
+        "runtime": {
+          "Airport.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Airport.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Airport.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

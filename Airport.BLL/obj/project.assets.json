@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Airport.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Airport.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Airport.Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Airport.Models/1.0.0": {
+      "type": "project",
+      "path": "../Airport.Models/Airport.Models.csproj",
+      "msbuildProject": "../Airport.Models/Airport.Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Airport.Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Nehor\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj": {
+              "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

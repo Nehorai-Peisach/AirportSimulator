@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import AirportUi from './components/AirportUi/AirportUi';
+import Connect from './components/Connect';
 
 function App() {
+  const [connection, setConnection] = useState();
+  useEffect(() => {
+    Connect(setConnection);
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        !connection
+        ? <h1>Connecting...</h1>
+        : <AirportUi/>
+      }
     </div>
   );
 }

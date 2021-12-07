@@ -1,0 +1,37 @@
+.welcomBtn{
+    font-size: 5rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    padding: 1em 2em;
+    user-select: none;
+    border: 0.125em solid currentColor;
+    outline: 0.125em solid currentColor;
+    outline-offset: -0.125em;
+    opacity: 50%;
+    transition: outline-offset 250ms ease-in-out, opacity 250ms ease-in-out;
+}
+.welcomBtn:hover{
+    cursor: pointer;
+    outline-offset: 0.5em;
+    opacity: 100%;
+}
+.welcomBtn:active{
+    outline-offset: -0.125em;
+}
+
+@media (max-width: 539px){
+    .welcomBtn{
+        font-size: 4rem;
+    }
+}
+@media (max-width: 424px){
+    .welcomBtn{
+        font-size: 3rem;
+    }
+}
+@media (max-width: 319px){
+    .welcomBtn{
+        font-size: 2rem;
+    }
+}

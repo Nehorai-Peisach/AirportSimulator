@@ -1,0 +1,46 @@
+.animation{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.simulator{
+    display: inline-block;
+    height: 600px;
+    width: 1000px;
+    background-color: white;
+    outline: solid currentColor 5px;
+    outline-offset: 10px;
+    transition: outline-offset 250ms ease-in-out;
+    z-index: 100;
+}
+/* .simulator:hover{
+    outline-offset: 20px;
+} */
+
+.simulatorBg{
+    width: 100vw;
+    height: 100vh;
+}
+
+.paper-plane{
+    z-index: 0;
+    height: 5vh;
+    width: 5vw;
+    background-image: url('../../assets/images/PaperPlane.svg');
+    background-repeat: no-repeat;
+    top: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.paper-plane.left{
+    transform: rotateX(40deg) rotateZ(70deg) rotate(-50deg);
+}
+.paper-plane.right{
+    transform: scaleX(-1) rotateY(40deg) rotateZ(70deg) rotate(-50deg);
+}
+
+.paper-plane.active{
+    background-image: url('../../assets/images/PaperPlane2.svg');
+}
