@@ -7,7 +7,6 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.Backend.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\ref\Airport.Backend.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.Backend.pdb
-D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNet.SignalR.Core.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.Models.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.Models.pdb
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.csproj.AssemblyReference.cache
@@ -20,7 +19,6 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\staticwebassets\Airport.Backend.StaticWebAssets.xml
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\scopedcss\bundle\Airport.Backend.styles.css
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.RazorTargetAssemblyInfo.cache
-D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.csproj.CopyComplete
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\ref\Airport.Backend.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.pdb

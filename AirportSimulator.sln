@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Simulator", "Airport.Simulator\Airport.Simulator.csproj", "{64FB0197-20C2-4AFC-93FD-4F080228341C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.DAL", "Airport.DAL\Airport.DAL.csproj", "{0CB79336-9AF4-43BC-9B6D-8D1E9EAC58D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.BLL", "Airport.BLL\Airport.BLL.csproj", "{6ACE45A7-E85F-4DE7-8A67-4E42F216C985}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Models", "Airport.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Backend", "Airport.Backend\Airport.Backend.csproj", "{F5C50283-588C-457F-9737-EAA0611EC5E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Simulator", "Airport.Simulator\Airport.Simulator.csproj", "{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64FB0197-20C2-4AFC-93FD-4F080228341C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64FB0197-20C2-4AFC-93FD-4F080228341C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64FB0197-20C2-4AFC-93FD-4F080228341C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64FB0197-20C2-4AFC-93FD-4F080228341C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0CB79336-9AF4-43BC-9B6D-8D1E9EAC58D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0CB79336-9AF4-43BC-9B6D-8D1E9EAC58D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CB79336-9AF4-43BC-9B6D-8D1E9EAC58D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{F5C50283-588C-457F-9737-EAA0611EC5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C50283-588C-457F-9737-EAA0611EC5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C50283-588C-457F-9737-EAA0611EC5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,13 @@
-﻿namespace Airport.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
+
+namespace Airport.Models
 {
     public class Station
     {
-        public int StationId { get; set; }
+        [BsonId]
+        public Guid StationId { get; set; }
         public string StationName { get; set; }
+        public Plane CurrentPlane { get; set; }
     }
 }

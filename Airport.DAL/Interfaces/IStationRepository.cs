@@ -8,7 +8,7 @@ namespace Airport.DAL.Interfaces
         void Add(Station station);
         void Remove(Station station);
         void Update(Station station);
-        Station Get(int id);
+        Station Get(string id);
         List<Station> GetAll { get; }
     }
 }

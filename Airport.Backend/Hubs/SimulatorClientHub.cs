@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Airport.Backend.Hubs
 {
-    public class SimulatorHub : Hub
+    public class SimulatorClientHub : Hub
     {
-        public async Task LandPlain(Station station, Plain plain)
+        public async Task LandPlain(Station station, Plane plain)
         {
 
         }

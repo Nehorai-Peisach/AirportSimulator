@@ -34,9 +34,6 @@
       "Airport.Backend/1.0.0": {
         "dependencies": {
           "Airport.BLL": "1.0.0",
-          "Airport.DAL": "1.0.0",
-          "Airport.Models": "1.0.0",
-          "Microsoft.AspNet.SignalR.Core": "2.4.2",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -339,17 +336,6 @@
           "lib/netstandard2.1/DnsClient.dll": {}
         }
       },
-      "Microsoft.AspNet.SignalR.Core/2.4.2": {
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {
-            "assemblyVersion": "2.4.2.0",
-            "fileVersion": "2.4.2.21106"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
-        }
-      },
       "MongoDB.Bson/2.14.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
@@ -478,6 +464,7 @@
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
       "Airport.BLL/1.0.0": {
         "dependencies": {
+          "Airport.DAL": "1.0.0",
           "Airport.Models": "1.0.0"
         },
         "runtime": {
@@ -500,6 +487,9 @@
         }
       },
       "Airport.Models/1.0.0": {
+        "dependencies": {
+          "MongoDB.Bson": "2.14.1"
+        },
         "runtime": {
           "Airport.Models.dll": {}
         },
@@ -2219,13 +2209,6 @@
       "sha512": "sha512-CO1NG1zQdV0nEAXmr/KppLZ0S1qkaPwV0kPX5YPgmYBtrBVh1XMYHM54IXy3RBJu1k4thFtpzwo4HNHqxiuFYw==",
       "path": "dnsclient/1.4.0",
       "hashPath": "dnsclient.1.4.0.nupkg.sha512"
-    },
-    "Microsoft.AspNet.SignalR.Core/2.4.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mpkCnN9sF4zBrE6Gkz7rmJL/as4JMGZDCV/dfcUh6mDwFdbGGYWBzchQOW1mWCx/3EBzHK+KkBr8+WGwTDejwg==",
-      "path": "microsoft.aspnet.signalr.core/2.4.2",
-      "hashPath": "microsoft.aspnet.signalr.core.2.4.2.nupkg.sha512"
     },
     "MongoDB.Bson/2.14.1": {
       "type": "package",

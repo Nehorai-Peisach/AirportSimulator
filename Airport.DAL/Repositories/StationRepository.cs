@@ -24,7 +24,7 @@ namespace Airport.DAL.Repositories
 
         public void Update(Station station) => GetCollection().ReplaceOne(Builders<Station>.Filter.Eq(x => x.StationId, station.StationId), station);
 
-        public Station Get(int id) => GetCollection().Find(Builders<Station>.Filter.Eq(x => x.StationId, id)).FirstOrDefault();
+        public Station Get(string id) => GetCollection().Find(Builders<Station>.Filter.Eq(x => x.StationName, id)).FirstOrDefault();
 
         public List<Station> GetAll => GetCollection().Find(new BsonDocument()).ToList();
     }

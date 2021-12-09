@@ -34,12 +34,6 @@
             "projectReferences": {
               "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj": {
                 "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj"
-              },
-              "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj"
-              },
-              "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj"
               }
             }
           }
@@ -53,12 +47,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.AspNet.SignalR.Core": {
-              "target": "Package",
-              "version": "[2.4.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -109,6 +97,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj": {
+                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj"
+              },
               "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj": {
                 "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj"
               }
@@ -250,6 +241,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.14.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

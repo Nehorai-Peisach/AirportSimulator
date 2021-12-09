@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './AirportUi.css';
-import Simulator from './Simulator';
+import Simulator from './simulator/Simulator';
 
 const AirportUi = () => {
     const [flag, setFlag] = useState(false);

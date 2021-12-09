@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Airport.DAL\Airport.DAL.csproj" />
     <ProjectReference Include="..\Airport.Models\Airport.Models.csproj" />
   </ItemGroup>
 

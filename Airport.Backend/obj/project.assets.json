@@ -11,15 +11,6 @@
           "lib/netstandard2.1/DnsClient.dll": {}
         }
       },
-      "Microsoft.AspNet.SignalR.Core/2.4.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
-        }
-      },
       "MongoDB.Bson/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -166,6 +157,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Airport.DAL": "1.0.0",
           "Airport.Models": "1.0.0"
         },
         "compile": {
@@ -192,6 +184,9 @@
       "Airport.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MongoDB.Bson": "2.14.1"
+        },
         "compile": {
           "bin/placeholder/Airport.Models.dll": {}
         },
@@ -222,21 +217,6 @@
         "lib/netstandard2.0/DnsClient.xml",
         "lib/netstandard2.1/DnsClient.dll",
         "lib/netstandard2.1/DnsClient.xml"
-      ]
-    },
-    "Microsoft.AspNet.SignalR.Core/2.4.2": {
-      "sha512": "mpkCnN9sF4zBrE6Gkz7rmJL/as4JMGZDCV/dfcUh6mDwFdbGGYWBzchQOW1mWCx/3EBzHK+KkBr8+WGwTDejwg==",
-      "type": "package",
-      "path": "microsoft.aspnet.signalr.core/2.4.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.AspNet.SignalR.Core.dll",
-        "lib/net45/Microsoft.AspNet.SignalR.Core.pdb",
-        "lib/net45/Microsoft.AspNet.SignalR.Core.xml",
-        "microsoft.aspnet.signalr.core.2.4.2.nupkg.sha512",
-        "microsoft.aspnet.signalr.core.nuspec",
-        "packageIcon.png"
       ]
     },
     "MongoDB.Bson/2.14.1": {
@@ -461,10 +441,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Airport.BLL >= 1.0.0",
-      "Airport.DAL >= 1.0.0",
-      "Airport.Models >= 1.0.0",
-      "Microsoft.AspNet.SignalR.Core >= 2.4.2"
+      "Airport.BLL >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -501,12 +478,6 @@
           "projectReferences": {
             "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj": {
               "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj"
-            },
-            "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj": {
-              "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj"
-            },
-            "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj": {
-              "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj"
             }
           }
         }
@@ -520,12 +491,6 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
-        "dependencies": {
-          "Microsoft.AspNet.SignalR.Core": {
-            "target": "Package",
-            "version": "[2.4.2, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -547,17 +512,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.SignalR.Core 2.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.SignalR.Core",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }

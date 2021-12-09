@@ -2,7 +2,7 @@ import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
 const Connect = (setConnection) => {
     let connection = new HubConnectionBuilder()
-    .withUrl('https://localhost:44325/simulator')
+    .withUrl('https://localhost:44325/simulatorClient')
     .configureLogging(LogLevel.Information)
     .build();
 

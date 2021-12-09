@@ -4,8 +4,8 @@ namespace Airport.BLL.Interfaces
 {
     public interface IStationService
     {
-        Plain GetPlain();
-        bool LandPlain(Station station, Plain plain);
+        Plane GetPlain();
+        bool LandPlain(Station station, Plane plain);
         bool DeportPlain(Station station);
     }
 }

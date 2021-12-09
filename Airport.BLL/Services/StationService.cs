@@ -11,12 +11,12 @@ namespace Airport.BLL.Services
             throw new NotImplementedException();
         }
 
-        public Plain GetPlain()
+        public Plane GetPlain()
         {
             throw new NotImplementedException();
         }
 
-        public bool LandPlain(Station station, Plain plain)
+        public bool LandPlain(Station station, Plane plain)
         {
             throw new NotImplementedException();
         }

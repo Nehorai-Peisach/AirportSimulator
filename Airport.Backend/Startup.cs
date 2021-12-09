@@ -1,5 +1,6 @@
 using Airport.Backend.Hubs;
 using Airport.BLL.Interfaces;
+using Airport.BLL.Methods;
 using Airport.BLL.Services;
 using Airport.DAL.Interfaces;
 using Airport.DAL.Repositories;
@@ -16,6 +17,12 @@ namespace Airport.Backend
 
             services.AddCors(options =>
             {
+                options.AddPolicy("client", builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000");
+                    //.WithMethods("")
+                });
+
                 options.AddDefaultPolicy(builder =>
                 {
                     builder.WithOrigins("http://localhost:3000")
@@ -26,6 +33,9 @@ namespace Airport.Backend
             });
 
             services.AddSingleton<IStationService, StationService>();
+            services.AddSingleton<ISimulatorLogic, SimulatorLogic>();
+            services.AddSingleton<IMyAirport, MyAirport>();
+            services.AddSingleton<IPlaneRepository, PlaneRepository>();
             services.AddSingleton<IStationRepository, StationRepository>();
         }
 
@@ -37,7 +47,8 @@ namespace Airport.Backend
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<SimulatorHub>("/simulator");
+                endpoints.MapHub<SimulatorClientHub>("/simulatorClient");
+                endpoints.MapHub<SimulatorServerHub>("/simulatorServer");
             });
         }
     }

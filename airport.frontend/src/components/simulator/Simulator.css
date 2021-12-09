@@ -4,19 +4,6 @@
     position: relative;
     overflow: hidden;
 }
-.simulator{
-    display: inline-block;
-    height: 600px;
-    width: 1000px;
-    background-color: white;
-    outline: solid currentColor 5px;
-    outline-offset: 10px;
-    transition: outline-offset 250ms ease-in-out;
-    z-index: 100;
-}
-/* .simulator:hover{
-    outline-offset: 20px;
-} */
 
 .simulatorBg{
     width: 100vw;
@@ -38,7 +25,7 @@
     transform: rotateX(40deg) rotateZ(70deg) rotate(-50deg);
 }
 .paper-plane.right{
-    transform: scaleX(-1) rotateY(40deg) rotateZ(70deg) rotate(-50deg);
+    transform: scaleX(-1) rotateY(40deg) rotateZ(70deg) rotate(-45deg);
 }
 
 .paper-plane.active{

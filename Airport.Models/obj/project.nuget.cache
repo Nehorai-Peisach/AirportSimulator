@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "dIYEgxtDzH9jNqbD1uwlF3Fhkx122KQdV4fZ0A2mYQP8/60ySX9yF7b+2IYKo5S2Z5zpIxjWhzu7ZF1Rs9aXog==",
+  "dgSpecHash": "nhzI7CJ5oS2jFdHrRAKxV8jowJvNPrH2BqIBtk7TDyf3/3B+9eaM1ZjpToGXKswRKJMnz9P99NoZcyCVd9MCBA==",
   "success": true,
   "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
