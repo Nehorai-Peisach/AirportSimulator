@@ -1,5 +1,4 @@
 .land{
-    display: grid;
     height: 70vh;
     width: 60vw;
     background-color: white;
@@ -7,7 +6,8 @@
     outline-offset: 10px;
     /* transition: outline-offset 250ms ease-in-out; */
     z-index: 100;
-
+    
+    display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(7, 1fr);
 }

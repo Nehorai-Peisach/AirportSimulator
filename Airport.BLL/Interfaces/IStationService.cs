@@ -6,6 +6,6 @@ namespace Airport.BLL.Interfaces
     {
         Plane GetPlain();
         bool LandPlain(Station station, Plane plain);
-        bool DeportPlain(Station station);
+        bool DepartPlain(Station station);
     }
 }

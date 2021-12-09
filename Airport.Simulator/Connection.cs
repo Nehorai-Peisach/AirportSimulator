@@ -9,15 +9,24 @@ namespace Airport.Simulator
         static HubConnection connection;
         public Connection(Logic logic)
         {
-            if(connection == null)
+            if (connection == null)
             {
                 connection = new HubConnectionBuilder()
                 .WithUrl("https://localhost:44325/simulatorServer")
                 .Build();
 
-                connection.On("LandPlane", (string massage) => logic.Message = massage);
-                connection.On("DeportPlane", (string massage) => logic.Message = massage);
-                connection.On("GetPlanes", (List<Plane> planes) => logic.Planes = planes);
+                connection.On("LandPlane", (string massage) => {
+                    logic.Message = massage;
+                    logic.WriteCommandsOnConsole();
+                });
+                connection.On("DeportPlane", (string massage) => {
+                    logic.Message = massage;
+                    logic.WriteCommandsOnConsole();
+                });
+                connection.On("GetPlanes", (List<Plane> planes) => {
+                    logic.Planes = planes;
+                    logic.WriteCommandsOnConsole();
+                });
             }
         }
 

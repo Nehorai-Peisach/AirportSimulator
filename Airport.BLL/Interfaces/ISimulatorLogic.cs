@@ -12,7 +12,7 @@ namespace Airport.BLL.Interfaces
     {
         List<Plane> Planes { get; }
 
-        bool DeportPlane();
+        bool DepartPlane();
         bool LandPlane(Plane plane);
     }
 }

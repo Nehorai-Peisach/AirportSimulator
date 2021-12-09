@@ -11,10 +11,10 @@ namespace Airport.Simulator
         Connection connection;
         Random random;
         Timer landTimer;
-        Timer deportTimer;
+        Timer departTimer;
 
         bool autoLandState = false;
-        bool autoDeportState = false;
+        bool autoDepartState = false;
         ConsoleColor primaryColor = ConsoleColor.White;
         ConsoleColor secondaryColor = ConsoleColor.Cyan;
         ConsoleColor connectionColor = ConsoleColor.Red;
@@ -31,26 +31,26 @@ namespace Airport.Simulator
             Planes = new List<Plane>();
 
             landTimer = new Timer();
-            landTimer.Elapsed += TimerLand_Elapsed;
             landTimer.Interval = 1000;
             landTimer.Enabled = true;
 
-            deportTimer = new Timer();
-            deportTimer.Elapsed += TimerDeport_Elapsed;
-            deportTimer.Interval = 1000;
-            deportTimer.Enabled = true;
+            departTimer = new Timer();
+            departTimer.Interval = 1000;
+            departTimer.Enabled = true;
         }
 
         private void TimerDeport_Elapsed(object sender, ElapsedEventArgs e)
         {
-            deportTimer.Interval = random.Next(1, 11) * 1000;
-            connection.Current.InvokeCoreAsync("DeportPlane", null);
+            departTimer.Interval = random.Next(1, 11) * 1000;
+            connection.Current.InvokeAsync("DeportPlane", $"AutoPlane{Planes.Count}");
+            connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void TimerLand_Elapsed(object sender, ElapsedEventArgs e)
         {
             landTimer.Interval = random.Next(1, 11) * 1000;
-            connection.Current.InvokeCoreAsync("LandPlane", null);
+            connection.Current.InvokeAsync("LandPlane", $"AutoPlane{Planes.Count}");
+            connection.Current.InvokeAsync("GetPlanes");
         }
 
         public void WriteCommandsOnConsole()
@@ -62,7 +62,7 @@ namespace Airport.Simulator
 
             Console.ForegroundColor = statesColor;
             Console.WriteLine($"Auto Land:          {autoLandState}");
-            Console.WriteLine($"Auto Deport:        {autoDeportState}");
+            Console.WriteLine($"Auto Deport:        {autoDepartState}");
             Console.WriteLine($"Planes In Airport:  {Planes.Count} planes\n");
 
             Console.ForegroundColor = primaryColor;
@@ -71,9 +71,9 @@ namespace Airport.Simulator
             Console.WriteLine($"'{Commands.connect}'    - {Commands.connect.GetEnumDescription()}.");
             Console.WriteLine($"'{Commands.disconnect}' - {Commands.disconnect.GetEnumDescription()}.");
             Console.WriteLine($"'{Commands.autoland}'   - {Commands.autoland.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.autodeport}' - {Commands.autodeport.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.autodepart}' - {Commands.autodepart.GetEnumDescription()}.");
             Console.WriteLine($"'{Commands.land}'       - {Commands.land.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.deport}'     - {Commands.deport.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.depart}'     - {Commands.depart.GetEnumDescription()}.");
             Console.WriteLine($"'{Commands.planes}'     - {Commands.planes.GetEnumDescription()}.");
             Console.WriteLine($"'{Commands.stop}'       - {Commands.stop.GetEnumDescription()}.");
             Console.ForegroundColor = primaryColor;
@@ -96,9 +96,9 @@ namespace Airport.Simulator
             if (input == Commands.connect.ToString()) Connect();
             if (input == Commands.disconnect.ToString()) Disconnect();
             if (input == Commands.autoland.ToString()) AutoLand();
-            if (input == Commands.autodeport.ToString()) AutoDeport();
+            if (input == Commands.autodepart.ToString()) AutoDepart();
             if (input == Commands.land.ToString()) Land();
-            if (input == Commands.deport.ToString()) Deport();
+            if (input == Commands.depart.ToString()) Depart();
             if (input == Commands.planes.ToString()) ShowPlanes();
 
             return true;
@@ -107,7 +107,7 @@ namespace Airport.Simulator
         private void Connect()
         {
             connection.Current.StartAsync().Wait();
-
+            connection.Current.InvokeAsync("GetPlanes");
             connectionColor = ConsoleColor.Green;
         }
 
@@ -115,7 +115,7 @@ namespace Airport.Simulator
         {
             connection.Current.StopAsync().Wait();
             autoLandState = false;
-            autoDeportState = false;
+            autoDepartState = false;
             Planes = default;
 
             connectionColor = ConsoleColor.Red;
@@ -124,24 +124,45 @@ namespace Airport.Simulator
         private void AutoLand()
         {
             autoLandState = !autoLandState;
-            //if(autoLandState)
+            if (autoLandState)
+            {
+                landTimer.Elapsed += TimerLand_Elapsed;
+                landTimer.Start();
+            }
+            else
+            {
+                landTimer.Elapsed -= TimerLand_Elapsed;
+                landTimer.Stop();
+            }
         }
 
-        private void AutoDeport()
+        private void AutoDepart()
         {
-            autoDeportState = !autoDeportState;
+            autoDepartState = !autoDepartState;
+            if (autoDepartState)
+            {
+                departTimer.Elapsed += TimerDeport_Elapsed;
+                departTimer.Start();
+            }
+            else
+            {
+                departTimer.Elapsed -= TimerDeport_Elapsed;
+                departTimer.Stop();
+            }
         }
 
         private void Land()
         {
-            Console.WriteLine("PlaneName:");
+            Console.Write("PlaneName:");
             var input = Console.ReadLine();
-            connection.Current.InvokeCoreAsync("LandPlane", new[] { input });
+            connection.Current.InvokeAsync("LandPlane", input);
+            connection.Current.InvokeAsync("GetPlanes");
         }
 
-        private void Deport()
+        private void Depart()
         {
-            connection.Current.InvokeCoreAsync("DeportPlane", null);
+            connection.Current.InvokeAsync("DepartPlane", $"AutoPlane{Planes.Count}");
+            connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void ShowPlanes()

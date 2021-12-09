@@ -6,7 +6,7 @@ namespace Airport.BLL.Services
 {
     public class StationService : IStationService
     {
-        public bool DeportPlain(Station station)
+        public bool DepartPlain(Station station)
         {
             throw new NotImplementedException();
         }

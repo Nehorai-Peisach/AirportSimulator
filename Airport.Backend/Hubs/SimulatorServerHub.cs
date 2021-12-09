@@ -18,12 +18,9 @@ namespace Airport.Backend.Hubs
         }
         public async Task DeportPlane(Plane plane)
         {
-            if(logic.DeportPlane()) await Clients.All.SendAsync("DeportPlane", $"That plane '{plane.PlaneName}', start deporting from the airport!");
+            if(logic.DepartPlane()) await Clients.All.SendAsync("DeportPlane", $"That plane '{plane.PlaneName}', start deporting from the airport!");
             else await Clients.All.SendAsync("DeportPlane", $"Stations 6 & 7 taken, '{plane.PlaneName}' can't deport now! Please try later.");
         }
-        public async Task GetPlanes()
-        {
-            await Clients.All.SendAsync("GetPlanes", logic.Planes);
-        }
+        public async Task GetPlanes() => await Clients.All.SendAsync("GetPlanes", logic.Planes);
     }
 }
