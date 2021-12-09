@@ -24,8 +24,9 @@ namespace Airport.BLL.Methods
             //if(lst.Count>0)
         }
 
-        public bool LandPlane()
+        public bool LandPlane(Plane plane)
         {
+            planeRepo.Add(plane);
             return true;
         }
     }

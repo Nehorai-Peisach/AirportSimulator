@@ -43,3 +43,4 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.DAL.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.BLL.pdb
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Airport.DAL.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.csproj.CopyComplete

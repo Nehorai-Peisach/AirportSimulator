@@ -13,7 +13,7 @@ namespace Airport.Backend.Hubs
         public async Task LandPlane(string planeName = "autoPlane")
         {
             var plane = new Plane() { PlaneName = planeName };
-            if(logic.LandPlane()) await Clients.All.SendAsync("LandPlane", $"That plane '{plane.PlaneName}', land successfully.");
+            if(logic.LandPlane(plane)) await Clients.All.SendAsync("LandPlane", $"That plane '{plane.PlaneName}', land successfully.");
             else await Clients.All.SendAsync("LandPlane", $"Station 1 taken, '{plane.PlaneName}' can't land now! Please try later.");
         }
         public async Task DeportPlane(Plane plane)
