@@ -9,6 +9,6 @@ namespace Airport.DAL.Interfaces
         void Remove(Station station);
         void Update(Station station);
         Station Get(string id);
-        List<Station> GetAll { get; }
+        List<Station> GetAll();
     }
 }

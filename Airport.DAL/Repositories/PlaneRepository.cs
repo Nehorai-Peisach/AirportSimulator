@@ -23,5 +23,11 @@ namespace Airport.DAL.Repositories
         public void Remove(Plane plane) => GetCollection().DeleteOne(Builders<Plane>.Filter.Eq(x => x.PlaneName, plane.PlaneName));
 
         public List<Plane> GetAll() => GetCollection().Find(new BsonDocument()).ToList();
+
+        public Plane GetByName(string planeName)
+        {
+            var filter = Builders<Plane>.Filter.Eq(x => x.PlaneName, planeName);
+            return GetCollection().Find(filter).FirstOrDefault();
+        }
     }
 }

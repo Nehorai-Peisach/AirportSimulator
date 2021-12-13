@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Airport.BLL.Methods
+namespace Airport.Models.DataStructures
 {
-    class Graph<T>
+    public class Graph<T>
     {
         public List<Node<T>> First;
         public List<Node<T>> Last;
@@ -16,16 +16,17 @@ namespace Airport.BLL.Methods
             if (Last == default) Last = newNode;
             else
             {
-                foreach (var item in Last) item.Next = newNode;
+                foreach (var node in Last) node.Next = newNode;
                 Last = newNode;
             }
         }
     }
 
-    class Node<T>
+    public class Node<T>
     {
         public List<Node<T>> Next { get; set; }
         public T Current { get; private set; }
         public Node(T current) => Current = current;
     }
+
 }

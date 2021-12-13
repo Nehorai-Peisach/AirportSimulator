@@ -93,13 +93,15 @@ namespace Airport.Simulator
         {
             if (input == Commands.stop.ToString()) return false;
 
-            if (input == Commands.connect.ToString()) Connect();
-            if (input == Commands.disconnect.ToString()) Disconnect();
-            if (input == Commands.autoland.ToString()) AutoLand();
-            if (input == Commands.autodepart.ToString()) AutoDepart();
-            if (input == Commands.land.ToString()) Land();
-            if (input == Commands.depart.ToString()) Depart();
-            if (input == Commands.planes.ToString()) ShowPlanes();
+            else if (input == Commands.connect.ToString()) Connect();
+            else if (connection.Current.State != HubConnectionState.Connected) Message = "Connect first!";
+
+            else if (input == Commands.disconnect.ToString()) Disconnect();
+            else if (input == Commands.autoland.ToString()) AutoLand();
+            else if (input == Commands.autodepart.ToString()) AutoDepart();
+            else if (input == Commands.land.ToString()) Land();
+            else if (input == Commands.depart.ToString()) Depart();
+            else if (input == Commands.planes.ToString()) ShowPlanes();
 
             return true;
         }
@@ -161,7 +163,10 @@ namespace Airport.Simulator
 
         private void Depart()
         {
-            connection.Current.InvokeAsync("DepartPlane", $"AutoPlane{Planes.Count}");
+            Console.WriteLine("Spesific palne: ('Enter' for random plane)");
+            var input = Console.ReadLine();
+            if (input == "") connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
+            else connection.Current.InvokeAsync("DepartPlane", new Plane() { PlaneName = input });
             connection.Current.InvokeAsync("GetPlanes");
         }
 

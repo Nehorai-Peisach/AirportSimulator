@@ -6,7 +6,8 @@ import { HubConnectionBuilder } from "@microsoft/signalr";
 
 function App() {
 
-  const [connection, setConnection] = useState(new HubConnectionBuilder());
+  const [connection, setConnection] = useState();
+  const [stations, setStations] = useState();
   
   const isLandscape = () => 
   window.matchMedia('(orientation:landscape)').matches,
@@ -20,7 +21,7 @@ function App() {
   }
 
 useEffect(() => (
-  Connect(setConnection),
+  Connect(setConnection,setStations),
   onWindowResize(),
   window.addEventListener('resize', onWindowResize),
   () => window.removeEventListener('resize', onWindowResize)
@@ -33,7 +34,7 @@ useEffect(() => (
         ? <h1>Please rotate your phone.</h1>
         : !connection
         ? <h1>Connecting...</h1>
-        : <AirportUi/>
+        : <AirportUi connection={connection} stations={stations}/>
       }
     </div>
   );

@@ -1,11 +1,11 @@
-﻿using Airport.BLL.Interfaces;
+﻿using Airport.Backend.Interfaces;
 using Airport.Models;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
 namespace Airport.Backend.Hubs
 {
-    public class SimulatorServerHub : Hub
+    public class SimulatorServerHub : Hub, ISimulatorServerHub
     {
         ISimulatorLogic logic;
         public SimulatorServerHub(ISimulatorLogic logic) => this.logic = logic;
@@ -13,13 +13,13 @@ namespace Airport.Backend.Hubs
         public async Task LandPlane(string planeName = "autoPlane")
         {
             var plane = new Plane() { PlaneName = planeName };
-            if(logic.LandPlane(plane)) await Clients.All.SendAsync("LandPlane", $"That plane '{plane.PlaneName}', land successfully.");
-            else await Clients.All.SendAsync("LandPlane", $"Station 1 taken, '{plane.PlaneName}' can't land now! Please try later.");
+            var message = logic.LandPlane(plane);
+            await Clients.All.SendAsync(message);
         }
-        public async Task DeportPlane(Plane plane)
+        public async Task DepartPlane(Plane plane)
         {
-            if(logic.DepartPlane()) await Clients.All.SendAsync("DeportPlane", $"That plane '{plane.PlaneName}', start deporting from the airport!");
-            else await Clients.All.SendAsync("DeportPlane", $"Stations 6 & 7 taken, '{plane.PlaneName}' can't deport now! Please try later.");
+            var message = logic.DepartPlane(plane);
+            await Clients.All.SendAsync(message);
         }
         public async Task GetPlanes() => await Clients.All.SendAsync("GetPlanes", logic.Planes);
     }

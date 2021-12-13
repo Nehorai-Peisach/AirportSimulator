@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import Fly from './Fly';
 import Stations from './stations/Stations';
 
-const Simulator = () => {
+const Simulator = ({stations}) => {
     
     const renderTime = 3000;
     const [kills, setKills] = useState(0);
@@ -27,7 +27,7 @@ const Simulator = () => {
     return <section className='animation'>
         <h2>You Destroyed {kills} Planes!</h2>
         <div id='simulatorBg' className='simulatorBg'/>
-        <Stations/>
+        <Stations stations={stations}/>
     </section>
 }
 

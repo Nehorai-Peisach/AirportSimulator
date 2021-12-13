@@ -26,6 +26,6 @@ namespace Airport.DAL.Repositories
 
         public Station Get(string id) => GetCollection().Find(Builders<Station>.Filter.Eq(x => x.StationName, id)).FirstOrDefault();
 
-        public List<Station> GetAll => GetCollection().Find(new BsonDocument()).ToList();
+        public List<Station> GetAll() => GetCollection().Find(new BsonDocument()).ToList();
     }
 }

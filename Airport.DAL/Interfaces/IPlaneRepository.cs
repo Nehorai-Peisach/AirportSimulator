@@ -12,5 +12,6 @@ namespace Airport.DAL.Interfaces
         void Add(Plane plane);
         void Remove(Plane plane);
         List<Plane> GetAll();
+        Plane GetByName(string planeName);
     }
 }

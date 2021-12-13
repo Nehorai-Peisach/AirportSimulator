@@ -1,24 +1,31 @@
 ﻿using Airport.BLL.Interfaces;
+using Airport.DAL.Interfaces;
 using Airport.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Airport.BLL.Services
 {
     public class StationService : IStationService
     {
-        public bool DepartPlain(Station station)
+        IStationRepository repo;
+        public StationService(IStationRepository repo) => this.repo = repo;
+
+        public void Add(Station station)
         {
-            throw new NotImplementedException();
+            if (station != default)
+                repo.Add(station);
         }
 
-        public Plane GetPlain()
+        public List<Station> GetAll()
         {
-            throw new NotImplementedException();
+            return repo.GetAll();
         }
 
-        public bool LandPlain(Station station, Plane plain)
+        public void Update(Station station)
         {
-            throw new NotImplementedException();
+            if (station != default)
+                repo.Update(station);
         }
     }
 }

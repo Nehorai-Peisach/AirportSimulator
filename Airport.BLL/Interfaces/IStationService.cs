@@ -1,11 +1,12 @@
 ﻿using Airport.Models;
+using System.Collections.Generic;
 
 namespace Airport.BLL.Interfaces
 {
     public interface IStationService
     {
-        Plane GetPlain();
-        bool LandPlain(Station station, Plane plain);
-        bool DepartPlain(Station station);
+        void Update(Station station);
+        List<Station> GetAll();
+        void Add(Station station);
     }
 }

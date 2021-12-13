@@ -34,6 +34,12 @@
             "projectReferences": {
               "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj": {
                 "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj"
+              },
+              "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj": {
+                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.DAL\\Airport.DAL.csproj"
+              },
+              "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj": {
+                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.Models\\Airport.Models.csproj"
               }
             }
           }
