@@ -27,5 +27,11 @@ namespace Airport.BLL.Services
                 return repo.GetByName(planeName);
             return default;
         }
+
+        public void Remove(Plane plane)
+        {
+            if (plane != default)
+                repo.Remove(plane);
+        }
     }
 }

@@ -5,6 +5,8 @@ using Airport.Models.DataStructures;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Microsoft.AspNetCore.SignalR.Client;
+using System.Threading.Tasks;
 
 namespace Airport.Backend.Methods
 {
@@ -12,25 +14,28 @@ namespace Airport.Backend.Methods
     {
         IStationService stationService;
         IPlaneService planeService;
-        ISimulatorClientHub clientHub;
-
+        IServerToClient connectionToClient;
+        IServerToSimulator connectionToSimulator;
         Random random = new Random();
         List<Station> stations;
         Graph<Station> landGraph;
         Graph<Station> departGraph;
 
-        public SimulatorLogic(IStationService stationService, IPlaneService planeService, ISimulatorClientHub clientHub)
+        public SimulatorLogic(IStationService stationService, IPlaneService planeService, IServerToClient connectionToClient, IServerToSimulator connectionToSimulator)
         {
             this.stationService = stationService;
             this.planeService = planeService;
-            this.clientHub = clientHub;
+            this.connectionToClient = connectionToClient;
+            this.connectionToSimulator = connectionToSimulator;
 
             stations = CreateStations(8);
             landGraph = CreateLandGraph(stations);
             departGraph = CreateDepartGraph(stations);
         }
 
-        private List<Station> CreateStations(int num)
+        public List<Plane> Planes { get { return planeService.GetAll(); } }
+
+        List<Station> CreateStations(int num)
         {
             var list = stationService.GetAll();
             if (list.Count == 0)
@@ -46,10 +51,11 @@ namespace Airport.Backend.Methods
                     stationService.Add(newStation);
                 }
             }
+            else list.ForEach(station => station.Plane = default);
 
             return list;
         }
-        private Graph<Station> CreateLandGraph(List<Station> list)
+        Graph<Station> CreateLandGraph(List<Station> list)
         {
             if (list.Count < 9) return null;
 
@@ -63,7 +69,7 @@ namespace Airport.Backend.Methods
             graph.AddNode(list[0]);
             return graph;
         }
-        private Graph<Station> CreateDepartGraph(List<Station> list)
+        Graph<Station> CreateDepartGraph(List<Station> list)
         {
             if (list.Count < 9) return null;
 
@@ -75,8 +81,6 @@ namespace Airport.Backend.Methods
             return graph;
         }
 
-        public List<Plane> Planes { get { return planeService.GetAll(); } }
-
         public string DepartPlane(Plane plane)
         {
             if (planeService.GetAll().Count < 1) return $"Can't find {plane}, the garage is empty!";
@@ -84,60 +88,54 @@ namespace Airport.Backend.Methods
             var planeInDb = planeService.GetByName(plane.PlaneName);
             if (planeInDb == default) return $"Can't find {plane} in the garage!";
 
-            foreach (var stationNode in departGraph.First)
-            {
-                NextStation(stationNode, planeInDb);
-            }
+            var tokenSource = new CancellationTokenSource();
+            departGraph.First.ForEach(stationNode => new Task(() => NextStation(stationNode, planeInDb, tokenSource)).Start());
+
+            planeService.Remove(plane);
+            connectionToSimulator.Current.InvokeAsync("GetPlanes");
             return $"{planeInDb} start depart now.";
         }
-
         public string LandPlane(Plane plane)
         {
+            var tokenSource = new CancellationTokenSource();
+            landGraph.First.ForEach(stationNode => new Task(() => NextStation(stationNode, plane, tokenSource)).Start());
             planeService.Add(plane);
+            connectionToSimulator.Current.InvokeAsync("GetPlanes");
             return "Land";
         }
 
-        private async void NextStation(Node<Station> stationNode, Plane plane)
+        private void NextStation(Node<Station> node, Plane plane, CancellationTokenSource token)
         {
-            await clientHub.StationsStatus();
-            Thread.Sleep((int)(stationNode.Current.StationDuration * 1000));
-
-            if (stationNode.Next == default)
+            do
             {
-                stationNode.Current.Plane = default;
-                stationService.Update(stationNode.Current);
-                return;
+                if (token.IsCancellationRequested) return;
             }
+            while (node.Current.Plane != default);
 
-            var flag = false;
-            foreach (var node in stationNode.Next)
+            lock (node.Current.StationLocker)
             {
-                node.Current.Semaphore.WaitAsync();
+                if (node.Next == default)
                 {
-                    while (true) if (node.Current.Plane == default) break;
-
-                    node.Current.Plane = plane;
+                    node.Current.Plane = default;
                     stationService.Update(node.Current);
-
-                    stationNode.Current.Plane = default;
-                    stationService.Update(stationNode.Current);
-
-                    NextStation(node, plane);
-                    flag = true;
+                    connectionToClient.Current.InvokeAsync("StationsStatus");
+                    token.Cancel();
+                    return;
                 }
-            }
 
-            while (true)
-            {
-                if (flag)
-                {
-                    foreach (var node in stationNode.Next)
-                        node.Current.Semaphore.Release();
-                    break;
-                }
-            }
+                node.Current.Plane = plane;
+                stationService.Update(node.Current);
 
+                node.Current.Plane = default;
+                stationService.Update(node.Current);
+
+                token.Cancel();
+            }
+            connectionToClient.Current.InvokeAsync("StationsStatus");
+            Thread.Sleep((int)(node.Current.StationDuration * 1000));
+
+            var tokenSource = new CancellationTokenSource();
+            node.Next.ForEach(stationNode => new Task(() => NextStation(stationNode, plane, tokenSource)).Start());
         }
-
     }
 }

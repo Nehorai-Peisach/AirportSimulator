@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Models", "Airport.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Backend", "Airport.Backend\Airport.Backend.csproj", "{F5C50283-588C-457F-9737-EAA0611EC5E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Simulator", "Airport.Simulator\Airport.Simulator.csproj", "{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport.Simulator", "Airport.Simulator\Airport.Simulator.csproj", "{FE4141B4-4AC9-4CB1-84DC-96199E080EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

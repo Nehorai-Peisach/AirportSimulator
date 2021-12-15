@@ -42,7 +42,7 @@ namespace Airport.Simulator
         private void TimerDeport_Elapsed(object sender, ElapsedEventArgs e)
         {
             departTimer.Interval = random.Next(1, 11) * 1000;
-            connection.Current.InvokeAsync("DeportPlane", $"AutoPlane{Planes.Count}");
+            connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
             connection.Current.InvokeAsync("GetPlanes");
         }
 
@@ -61,21 +61,21 @@ namespace Airport.Simulator
             Console.WriteLine($"\nConnection: {connection.Current.State}\n");
 
             Console.ForegroundColor = statesColor;
-            Console.WriteLine($"Auto Land:          {autoLandState}");
-            Console.WriteLine($"Auto Deport:        {autoDepartState}");
-            Console.WriteLine($"Planes In Airport:  {Planes.Count} planes\n");
+            Console.WriteLine($"Is Auto Land:           -   {autoLandState}");
+            Console.WriteLine($"Is Auto Deport:         -   {autoDepartState}");
+            Console.WriteLine($"Planes In The Garage:   -   {Planes.Count} planes\n");
 
             Console.ForegroundColor = primaryColor;
             Console.WriteLine("-------------------------------------------------------------------------");
             Console.ForegroundColor = secondaryColor;
-            Console.WriteLine($"'{Commands.connect}'    - {Commands.connect.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.disconnect}' - {Commands.disconnect.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.autoland}'   - {Commands.autoland.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.autodepart}' - {Commands.autodepart.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.land}'       - {Commands.land.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.depart}'     - {Commands.depart.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.planes}'     - {Commands.planes.GetEnumDescription()}.");
-            Console.WriteLine($"'{Commands.stop}'       - {Commands.stop.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.connect}'    -   {Commands.connect.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.disconnect}' -   {Commands.disconnect.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.autoland}'   -   {Commands.autoland.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.autodepart}' -   {Commands.autodepart.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.land}'       -   {Commands.land.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.depart}'     -   {Commands.depart.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.planes}'     -   {Commands.planes.GetEnumDescription()}.");
+            Console.WriteLine($"'{Commands.stop}'       -   {Commands.stop.GetEnumDescription()}.");
             Console.ForegroundColor = primaryColor;
             Console.WriteLine("-------------------------------------------------------------------------");
             Console.WriteLine(Message);

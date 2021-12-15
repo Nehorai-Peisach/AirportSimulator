@@ -34,8 +34,8 @@ namespace Airport.Backend
             services.AddSingleton<IPlaneRepository, PlaneRepository>();
             services.AddSingleton<IStationRepository, StationRepository>();
 
-            services.AddSingleton<ISimulatorClientHub, SimulatorClientHub>();
-            services.AddSingleton<ISimulatorServerHub, SimulatorServerHub>();
+            services.AddSingleton<IServerToClient, ServerToClient>();
+            services.AddSingleton<IServerToSimulator, ServerToSimulator>();
         }
 
         public void Configure(IApplicationBuilder app)

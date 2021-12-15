@@ -5,7 +5,7 @@
     outline: solid currentColor 5px;
     outline-offset: 10px;
     /* transition: outline-offset 250ms ease-in-out; */
-    z-index: 100;
+    /* z-index: 100; */
     
     display: grid;
     grid-template-columns: repeat(9, 1fr);

@@ -43,3 +43,14 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\ref\Airport.Backend.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.pdb
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Client.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll

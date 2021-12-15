@@ -1,13 +1,10 @@
-﻿using Airport.Backend.Interfaces;
-using Airport.BLL.Interfaces;
-using Airport.Models;
+﻿using Airport.BLL.Interfaces;
 using Microsoft.AspNetCore.SignalR;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Airport.Backend.Hubs
 {
-    public class SimulatorClientHub : Hub, ISimulatorClientHub
+    public class SimulatorClientHub : Hub
     {
         IStationService stationService;
         public SimulatorClientHub(IStationService stationService) => this.stationService = stationService;

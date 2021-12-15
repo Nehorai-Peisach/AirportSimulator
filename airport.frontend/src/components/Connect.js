@@ -7,7 +7,6 @@ const Connect = (setConnection,setStations) => {
     .build();
 
     connection.on("StationsStatus", (list) =>{
-        debugger
         setStations(list);
     });
     connection.start();

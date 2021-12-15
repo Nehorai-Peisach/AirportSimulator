@@ -12,5 +12,6 @@ namespace Airport.BLL.Interfaces
         List<Plane> GetAll();
         void Add(Plane plane);
         Plane GetByName(string planeName);
+        void Remove(Plane plane);
     }
 }
