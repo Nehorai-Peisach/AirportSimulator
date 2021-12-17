@@ -13,11 +13,10 @@ namespace Airport.Simulator
         Timer landTimer;
         Timer departTimer;
 
-        bool autoLandState = false;
+        public bool autoLandState = false;
         bool autoDepartState = false;
         ConsoleColor primaryColor = ConsoleColor.White;
         ConsoleColor secondaryColor = ConsoleColor.Cyan;
-        ConsoleColor connectionColor = ConsoleColor.Red;
         ConsoleColor statesColor = ConsoleColor.Yellow;
 
         public string Message { get; set; }
@@ -41,23 +40,24 @@ namespace Airport.Simulator
 
         private void TimerDeport_Elapsed(object sender, ElapsedEventArgs e)
         {
-            departTimer.Interval = random.Next(1, 11) * 1000;
+            departTimer.Interval = random.Next(4, 11) * 1000;
             connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
-            connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void TimerLand_Elapsed(object sender, ElapsedEventArgs e)
         {
-            landTimer.Interval = random.Next(1, 11) * 1000;
-            connection.Current.InvokeAsync("LandPlane", $"AutoPlane{Planes.Count}");
-            connection.Current.InvokeAsync("GetPlanes");
+            landTimer.Interval = random.Next(4, 11) * 1000;
+            connection.Current.InvokeAsync("LandPlane", $"Plane{random.Next(100)}");
         }
 
         public void WriteCommandsOnConsole()
         {
             Console.Clear();
 
-            Console.ForegroundColor = connectionColor;
+            
+            if(connection.Current.State == HubConnectionState.Connected) Console.ForegroundColor = ConsoleColor.Green;
+            else Console.ForegroundColor = ConsoleColor.Red;
+
             Console.WriteLine($"\nConnection: {connection.Current.State}\n");
 
             Console.ForegroundColor = statesColor;
@@ -108,9 +108,10 @@ namespace Airport.Simulator
 
         private void Connect()
         {
+            if (connection.Current.State != HubConnectionState.Disconnected) return;
+
             connection.Current.StartAsync().Wait();
             connection.Current.InvokeAsync("GetPlanes");
-            connectionColor = ConsoleColor.Green;
         }
 
         private void Disconnect()
@@ -119,11 +120,9 @@ namespace Airport.Simulator
             autoLandState = false;
             autoDepartState = false;
             Planes = default;
-
-            connectionColor = ConsoleColor.Red;
         }
 
-        private void AutoLand()
+        public void AutoLand()
         {
             autoLandState = !autoLandState;
             if (autoLandState)

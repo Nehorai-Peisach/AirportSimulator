@@ -28,6 +28,8 @@ namespace Airport.Simulator
                     logic.WriteCommandsOnConsole();
                 });
             }
+
+            connection.StartAsync();
         }
 
         public HubConnection Current { get { return connection; } }

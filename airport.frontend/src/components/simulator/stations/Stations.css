@@ -1,7 +1,9 @@
 .land{
     height: 70vh;
     width: 60vw;
-    background-color: white;
+    /* background-color: white; */
+    background-image: url(../../../assets/images/BG.svg);
+    background-repeat: no-repeat;
     outline: solid currentColor 5px;
     outline-offset: 10px;
     /* transition: outline-offset 250ms ease-in-out; */
@@ -16,16 +18,24 @@
 } */
 
 .station{
+    display: inline-block;
     background-color: grey;
     border-radius: 50px;
     outline: white 2px solid;
     outline-offset: -1vh -1vw;
+    font-size: 0.9vw;
+    font-weight: bold;
+    padding-top: 25%;
+    color: rgb(46, 46, 46);
 }
-.problem{
-    background-color: rgb(255, 132, 132);
+.both{
+    background-color: rgb(255, 164, 164);
 }
-.ready{
-    background-color: rgb(77, 143, 77);
+.departing{
+    background-color: rgb(176, 255, 152);
+}
+.landing{
+    background-color: rgb(143, 219, 255);
 }
 .station.station1{
     grid-column: 8;

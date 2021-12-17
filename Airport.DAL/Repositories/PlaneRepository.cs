@@ -3,6 +3,7 @@ using Airport.DAL.Interfaces;
 using Airport.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace Airport.DAL.Repositories
             return db.Client.GetCollection<Plane>(table);
         }
 
-        public void Add(Plane plane) => GetCollection().InsertOne(plane);
+        public void Add(Plane plane) => GetCollection().InsertOneAsync(plane);
 
         public void Remove(Plane plane) => GetCollection().DeleteOne(Builders<Plane>.Filter.Eq(x => x.PlaneName, plane.PlaneName));
 

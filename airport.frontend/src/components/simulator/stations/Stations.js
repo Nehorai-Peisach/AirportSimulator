@@ -6,18 +6,22 @@ const Stations = ({stations}) => {
     useEffect(() => {
         for (let i = 1; i <= 8; i++) {
             let node = document.createElement('div');
-            node.className = 'station ready station'+i
+            if(i<=3 || i==5) node.className = 'landing station station'+i
+            if(i==4 || i==6 || i==7) node.className = 'both station station'+i
+            if(i==8) node.className = 'departing station station'+i
+            
             allSations.current.appendChild(node);
         }
     }, [])
     useEffect(() => {
         if(!stations) return;
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 0; i < 8; i++) {
             stations[i].plane
             ? allSations.current.children[i].innerHTML = stations[i].plane.planeName
             : allSations.current.children[i].innerHTML = '';
         }
     }, [stations])
+
     return <div ref={allSations} className='land free'/>
 }
 

@@ -26,8 +26,8 @@ const Simulator = ({stations}) => {
 
     return <section className='animation'>
         <h2>You Destroyed {kills} Planes!</h2>
-        <div id='simulatorBg' className='simulatorBg'/>
         <Stations stations={stations}/>
+        <div id='simulatorBg' className='simulatorBg'/>
     </section>
 }
 

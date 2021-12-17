@@ -1,5 +1,5 @@
 ﻿using Airport.BLL.Interfaces;
-using Airport.DAL.Interfaces;
+using Airport.DAL.Repositories;
 using Airport.Models;
 using System;
 using System.Collections.Generic;
@@ -8,8 +8,11 @@ namespace Airport.BLL.Services
 {
     public class StationService : IStationService
     {
-        IStationRepository repo;
-        public StationService(IStationRepository repo) => this.repo = repo;
+        StationRepository repo;
+        public StationService()
+        {
+            repo = new StationRepository();
+        }
 
         public void Add(Station station)
         {

@@ -8,5 +8,6 @@ namespace Airport.Models
         [BsonId]
         public Guid PlaneId { get; set; }
         public string PlaneName { get; set; }
+        public string CurrentStationName { get; set; }
     }
 }

@@ -24,7 +24,11 @@ namespace Airport.DAL.Repositories
 
         public void Update(Station station)
         {
-            GetCollection().ReplaceOne(Builders<Station>.Filter.Eq(x => x.StationId, station.StationId), station);
+            var filter = Builders<Station>.Filter.Eq(x => x.StationId, station.StationId);
+            var udpate = Builders<Station>.Update
+                .Set(a => a.Plane, station.Plane);
+
+            GetCollection().UpdateOne(filter, udpate, new UpdateOptions { IsUpsert = true });
         }
 
         public Station Get(string id) => GetCollection().Find(Builders<Station>.Filter.Eq(x => x.StationName, id)).FirstOrDefault();

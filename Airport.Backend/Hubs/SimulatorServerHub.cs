@@ -1,6 +1,7 @@
 ﻿using Airport.Backend.Interfaces;
 using Airport.Models;
 using Microsoft.AspNetCore.SignalR;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Airport.Backend.Hubs

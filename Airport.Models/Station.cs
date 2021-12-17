@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
+using System.Threading;
 
 namespace Airport.Models
 {
@@ -8,9 +9,9 @@ namespace Airport.Models
         [BsonId]
         public Guid StationId { get; set; }
         public string StationName { get; set; }
-        public double StationDuration { get; set; }
+        public TimeSpan StationDuration { get; set; }
         public Plane Plane { get; set; }
 
-        public object StationLocker = new object();
+        public object Loker = new object();
     }
 }
