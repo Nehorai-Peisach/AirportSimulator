@@ -12,10 +12,22 @@ const Stations = ({stations}) => {
             
             allSations.current.appendChild(node);
         }
+        for (let i = 1; i <= 8; i++) {
+            let green = document.createElement('div');
+            green.className='green green'+i;
+            allSations.current.appendChild(green);
+            if(i<6){
+                let blue = document.createElement('div');
+                blue.className='blue blue'+i;
+                allSations.current.appendChild(blue);
+            }
+        }
+
     }, [])
+
     useEffect(() => {
         if(!stations) return;
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < stations.length; i++) {
             stations[i].plane
             ? allSations.current.children[i].innerHTML = stations[i].plane.planeName
             : allSations.current.children[i].innerHTML = '';

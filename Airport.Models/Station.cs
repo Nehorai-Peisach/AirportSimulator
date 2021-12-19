@@ -12,6 +12,6 @@ namespace Airport.Models
         public TimeSpan StationDuration { get; set; }
         public Plane Plane { get; set; }
 
-        public object Loker = new object();
+        public object Locker = new object();
     }
 }

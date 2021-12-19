@@ -34,14 +34,15 @@ namespace Airport.Models.DataStructures
 
         public T Value { get; private set; }
         public GraphType type { get; private set; }
+        public List<Node<T>> Next { get; set; }
+        public List<Node<T>> Previous { get; set; }
+
         public Node(T value, GraphType type)
         {
             Value = value;
             this.type = type;
         }
 
-        public List<Node<T>> Next { get; set; }
-        public List<Node<T>> Previous { get; set; }
     }
 
 }

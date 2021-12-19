@@ -7,12 +7,12 @@ using System.Collections.Generic;
 using System.Threading;
 using Microsoft.AspNetCore.SignalR.Client;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace Airport.Backend.Methods
 {
     public class SimulatorLogic : ISimulatorLogic
     {
+        #region Params
         IStationService stationService;
         IPlaneService planeService;
         IServerToClient connectionToClient;
@@ -32,8 +32,8 @@ namespace Airport.Backend.Methods
             new Task(() => CreateDepartGraph()).Start();
             connectionToSimulator.Current.InvokeAsync("GetPlanes");
         }
-
-
+        #endregion
+        #region Create
         public List<Station> Stations { get; set; }
         void CreateStations(int num)
         {
@@ -88,7 +88,8 @@ namespace Airport.Backend.Methods
                 }
             } while (Stations.Count < biggest + 1);
         }
-
+        #endregion
+        #region Functions
         public string DepartPlane(Plane plane)
         {
             if (planeService.GetAll().Count < 1) return $"Can't find {plane}, the garage is empty!";
@@ -108,40 +109,35 @@ namespace Airport.Backend.Methods
             return "Landing..";
         }
 
-
         private void NextStation(Node<Station> node, Plane plane, TaskCompletionSource tcs)
         {
-            do
-            {
-                if (tcs.Task.IsCompleted) return;
-            } while (node.Value.Plane != default);
+            do if (tcs.Task.IsCompleted) return;
+            while (node.Value.Plane != default);
 
-            lock (node.Value.Loker)
+            lock (node.Value.Locker)
             {
+                Thread.Sleep(100);
                 lock (tcs)
                 {
                     if (tcs.Task.IsCompleted) return;
                     tcs.SetResult();
                 }
+                UpdateStation(node.Value, plane);
+                UpdatePlane(plane, node.Value);
 
-                //the next station
-                {
-                    UpdateStation(node.Value, plane);
-                    UpdatePlane(plane, node.Value);
-                }
-
-                //the current station
                 if (node.Previous != default)
-                {
                     foreach (var item in node.Previous)
-                    {
                         if (item.Value.Plane != default && item.Value.Plane.PlaneId == plane.PlaneId)
                             UpdateStation(item.Value);
-                    }
-                }
+
                 connectionToClient.Current.InvokeAsync("StationsStatus");
                 Thread.Sleep(node.Value.StationDuration);
             }
+            EndFlight(node, plane);
+        }
+
+        private void EndFlight(Node<Station> node, Plane plane)
+        {
             if (node.Next == default)
             {
                 UpdateStation(node.Value);
@@ -179,9 +175,10 @@ namespace Airport.Backend.Methods
         private void UpdateStation(Station station, Plane plane = null)
         {
             station.Plane = plane;
-
-            Stations.Find(x => x.StationId == station.StationId).Plane = plane;
             stationService.Update(station);
+
+            //Stations.Find(x => x.StationId == station.StationId).Plane = plane;
         }
+        #endregion
     }
 }
