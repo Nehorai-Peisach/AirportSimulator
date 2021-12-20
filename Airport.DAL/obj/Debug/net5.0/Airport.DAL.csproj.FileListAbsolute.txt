@@ -12,4 +12,3 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.DAL\obj\Debug\net5.0\Ai
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.DAL\obj\Debug\net5.0\Airport.DAL.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.DAL\obj\Debug\net5.0\ref\Airport.DAL.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.DAL\obj\Debug\net5.0\Airport.DAL.pdb
-D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.DAL\obj\Debug\net5.0\Airport.DAL.csproj.CopyComplete

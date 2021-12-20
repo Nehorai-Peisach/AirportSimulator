@@ -27,6 +27,7 @@ const Stations = ({stations}) => {
 
     useEffect(() => {
         if(!stations) return;
+        
         for (let i = 0; i < stations.length; i++) {
             stations[i].plane
             ? allSations.current.children[i].innerHTML = stations[i].plane.planeName

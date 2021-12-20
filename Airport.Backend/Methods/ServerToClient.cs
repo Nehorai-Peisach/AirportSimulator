@@ -15,7 +15,7 @@ namespace Airport.Backend.Methods
                 .Build();
             }
 
-            connection.StartAsync();
+            connection.StartAsync().Wait();
         }
 
         public HubConnection Current { get { return connection; } }

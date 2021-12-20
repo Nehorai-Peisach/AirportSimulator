@@ -6,9 +6,9 @@ using System.Timers;
 
 namespace Airport.Simulator
 {
-    class Logic
+    public class Logic
     {
-        Connection connection;
+        public SimulatorConnection Connection;
         Random random;
         Timer landTimer;
         Timer departTimer;
@@ -24,7 +24,7 @@ namespace Airport.Simulator
 
         public Logic()
         {
-            connection = new Connection(this);
+            Connection = new SimulatorConnection(this);
             random = new Random();
             Message = "You don't have new messages.";
             Planes = new List<Plane>();
@@ -41,13 +41,13 @@ namespace Airport.Simulator
         private void TimerDeport_Elapsed(object sender, ElapsedEventArgs e)
         {
             departTimer.Interval = random.Next(4, 11) * 1000;
-            connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
+            Connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
         }
 
         private void TimerLand_Elapsed(object sender, ElapsedEventArgs e)
         {
             landTimer.Interval = random.Next(4, 11) * 1000;
-            connection.Current.InvokeAsync("LandPlane", $"Plane{random.Next(100)}");
+            Connection.Current.InvokeAsync("LandPlane", $"Plane{random.Next(100)}");
         }
 
         public void WriteCommandsOnConsole()
@@ -55,10 +55,10 @@ namespace Airport.Simulator
             Console.Clear();
 
             
-            if(connection.Current.State == HubConnectionState.Connected) Console.ForegroundColor = ConsoleColor.Green;
+            if(Connection.Current.State == HubConnectionState.Connected) Console.ForegroundColor = ConsoleColor.Green;
             else Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"\nConnection: {connection.Current.State}\n");
+            Console.WriteLine($"\nConnection: {Connection.Current.State}\n");
 
             Console.ForegroundColor = statesColor;
             Console.WriteLine($"Is Auto Land:           -   {autoLandState}");
@@ -94,7 +94,7 @@ namespace Airport.Simulator
             if (input == Commands.stop.ToString()) return false;
 
             else if (input == Commands.connect.ToString()) Connect();
-            else if (connection.Current.State != HubConnectionState.Connected) Message = "Connect first!";
+            else if (Connection.Current.State != HubConnectionState.Connected) Message = "Connect first!";
 
             else if (input == Commands.disconnect.ToString()) Disconnect();
             else if (input == Commands.autoland.ToString()) AutoLand();
@@ -108,15 +108,15 @@ namespace Airport.Simulator
 
         private void Connect()
         {
-            if (connection.Current.State != HubConnectionState.Disconnected) return;
+            if (Connection.Current.State != HubConnectionState.Disconnected) return;
 
-            connection.Current.StartAsync().Wait();
-            connection.Current.InvokeAsync("GetPlanes");
+            Connection.Current.StartAsync().Wait();
+            Connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void Disconnect()
         {
-            connection.Current.StopAsync().Wait();
+            Connection.Current.StopAsync().Wait();
             autoLandState = false;
             autoDepartState = false;
             Planes = default;
@@ -156,17 +156,17 @@ namespace Airport.Simulator
         {
             Console.Write("PlaneName:");
             var input = Console.ReadLine();
-            connection.Current.InvokeAsync("LandPlane", input);
-            connection.Current.InvokeAsync("GetPlanes");
+            Connection.Current.InvokeAsync("LandPlane", input);
+            Connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void Depart()
         {
             Console.WriteLine("Spesific palne: ('Enter' for random plane)");
             var input = Console.ReadLine();
-            if (input == "") connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
-            else connection.Current.InvokeAsync("DepartPlane", new Plane() { PlaneName = input });
-            connection.Current.InvokeAsync("GetPlanes");
+            if (input == "") Connection.Current.InvokeAsync("DepartPlane", Planes[random.Next(0, Planes.Count)]);
+            else Connection.Current.InvokeAsync("DepartPlane", new Plane() { PlaneName = input });
+            Connection.Current.InvokeAsync("GetPlanes");
         }
 
         private void ShowPlanes()

@@ -34,7 +34,7 @@
 }
 .green{
     border-radius: 3vh;
-    background-color: rgb(255, 36, 36);
+    background-color: rgb(140, 255, 148);
 }
 .station.station1{
     grid-column: 31/37;

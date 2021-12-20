@@ -116,7 +116,7 @@ namespace Airport.Backend.Methods
 
             lock (node.Value.Locker)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
                 lock (tcs)
                 {
                     if (tcs.Task.IsCompleted) return;
