@@ -12,7 +12,7 @@ namespace Airport.Simulator
             if (connection == null)
             {
                 connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:44325/simulatorServer")
+                .WithUrl(MyConnectionStrings.Server)
                 .Build();
 
                 connection.On("LandPlane", (string massage) => {

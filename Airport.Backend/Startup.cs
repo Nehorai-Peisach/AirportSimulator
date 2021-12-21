@@ -5,6 +5,7 @@ using Airport.BLL.Interfaces;
 using Airport.BLL.Services;
 using Airport.DAL.Interfaces;
 using Airport.DAL.Repositories;
+using Airport.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,7 +21,7 @@ namespace Airport.Backend
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("http://localhost:3000")
+                    builder.WithOrigins("https://airportclient.azurewebsites.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
@@ -46,8 +47,8 @@ namespace Airport.Backend
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<SimulatorClientHub>("/simulatorClient");
-                endpoints.MapHub<SimulatorServerHub>("/simulatorServer");
+                endpoints.MapHub<SimulatorClientHub>(MyConnectionStrings.ClientHub);
+                endpoints.MapHub<SimulatorServerHub>(MyConnectionStrings.ServerHub);
             });
         }
     }

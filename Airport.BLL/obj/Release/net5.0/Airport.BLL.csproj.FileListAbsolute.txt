@@ -1,0 +1,17 @@
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.BLL.deps.json
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.BLL.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\ref\Airport.BLL.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.DAL.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.Models.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.DAL.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\bin\Release\net5.0\Airport.Models.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.csproj.AssemblyReference.cache
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\ref\Airport.BLL.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.BLL\obj\Release\net5.0\Airport.BLL.csproj.CopyComplete

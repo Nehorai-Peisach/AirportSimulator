@@ -54,3 +54,12 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\z.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\ref\z.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\z.pdb
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\obj\Debug\net5.0\Airport.Backend.csproj.CopyComplete
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.Azure.SignalR.Common.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.Azure.SignalR.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.Azure.SignalR.Protocols.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Backend\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

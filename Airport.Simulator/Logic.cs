@@ -110,7 +110,7 @@ namespace Airport.Simulator
         {
             if (Connection.Current.State != HubConnectionState.Disconnected) return;
 
-            Connection.Current.StartAsync().Wait();
+            Connection.Current.StartAsync();
             Connection.Current.InvokeAsync("GetPlanes");
         }
 
