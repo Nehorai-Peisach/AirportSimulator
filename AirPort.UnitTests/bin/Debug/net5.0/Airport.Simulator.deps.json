@@ -254,6 +254,7 @@
       },
       "Airport.Models/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "6.0.0",
           "MongoDB.Bson": "2.14.1"
         },
         "runtime": {

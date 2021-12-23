@@ -32,6 +32,6 @@ namespace Airport.Simulator
             connection.StartAsync();
         }
 
-        public HubConnection Current { get { return connection; } }
+        public object Current { get { return connection; } }
     }
 }

@@ -1,17 +1,33 @@
 {
   "version": 2,
-  "dgSpecHash": "ciiLPmBoK5GCJi+TklngADrB0AiBmIl8h7KgxtFOYLkFwp4JjQHtmEnjN7z8bdWEt4wAtGCz2f2QY6MXTP9Djw==",
+  "dgSpecHash": "c+uvOlYSmNBLagMPJQUU6tLV3x/3mvUg3umJTJX7DbrJdqZHtdEnFAUBf/bP4IctMmvhY2TlACT/113Qcg0h8A==",
   "success": true,
   "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\AirportSimulator\\Airport.BLL\\Airport.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nehor\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\5.0.13\\microsoft.aspnetcore.connections.abstractions.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\5.0.13\\microsoft.aspnetcore.http.connections.client.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common\\5.0.13\\microsoft.aspnetcore.http.connections.common.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.13\\microsoft.aspnetcore.http.features.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.signalr.client\\5.0.13\\microsoft.aspnetcore.signalr.client.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\5.0.13\\microsoft.aspnetcore.signalr.client.core.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\5.0.13\\microsoft.aspnetcore.signalr.common.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\5.0.13\\microsoft.aspnetcore.signalr.protocols.json.5.0.13.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.driver\\2.14.1\\mongodb.driver.2.14.1.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.driver.core\\2.14.1\\mongodb.driver.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.libmongocrypt\\1.3.0\\mongodb.libmongocrypt.1.3.0.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\Nehor\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\Nehor\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nehor\\.nuget\\packages\\system.threading.channels\\5.0.0\\system.threading.channels.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

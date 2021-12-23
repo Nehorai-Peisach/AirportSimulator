@@ -10,7 +10,7 @@ namespace Airport.Models
         public Guid StationId { get; set; }
         public string StationName { get; set; }
         public TimeSpan StationDuration { get; set; }
-        public Plane Plane { get; set; }
+        public Plane CurrentPlane { get; set; }
 
         public object Locker = new object();
     }

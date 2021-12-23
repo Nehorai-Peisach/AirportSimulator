@@ -15,8 +15,8 @@ namespace Airport.Backend.Methods
         #region Params
         IStationService stationService;
         IPlaneService planeService;
-        IServerToClient connectionToClient;
-        IServerToSimulator connectionToSimulator;
+        IMyConnection connectionToClient;
+        IMyConnection connectionToSimulator;
         Random random = new Random();
         public List<Plane> Planes { get { return planeService.GetAll(); } }
 
@@ -24,13 +24,13 @@ namespace Airport.Backend.Methods
         {
             this.stationService = stationService;
             this.planeService = planeService;
-            this.connectionToClient = connectionToClient;
-            this.connectionToSimulator = connectionToSimulator;
+            this.connectionToClient = connectionToClient.Current;
+            this.connectionToSimulator = connectionToSimulator.Current;
 
             CreateStations(8);
             new Task(() => CreateLandGraph()).Start();
             new Task(() => CreateDepartGraph()).Start();
-            connectionToSimulator.Current.InvokeAsync("GetPlanes");
+            this.connectionToSimulator.InvokeAsync("GetPlanes");
         }
         #endregion
         #region Create
@@ -49,7 +49,7 @@ namespace Airport.Backend.Methods
                     stationService.Add(newStation);
                 }
             }
-            else list.ForEach(station => station.Plane = default);
+            else list.ForEach(station => station.CurrentPlane = default);
             Stations = list;
         }
 
@@ -104,6 +104,7 @@ namespace Airport.Backend.Methods
         }
         public string LandPlane(Plane plane)
         {
+            if (landGraph.First[0].Value.CurrentPlane != default) return "Sorry The Airport can't Take Langing Right Now.";
             var tcs = new TaskCompletionSource();
             landGraph.First.ForEach(stationNode => new Task(() => NextStation(stationNode, plane, tcs)).Start());
             return "Landing..";
@@ -112,31 +113,31 @@ namespace Airport.Backend.Methods
         private void NextStation(Node<Station> node, Plane plane, TaskCompletionSource tcs)
         {
             do if (tcs.Task.IsCompleted) return;
-            while (node.Value.Plane != default);
+            while (node.Value.CurrentPlane != default);
 
             lock (node.Value.Locker)
             {
-                Thread.Sleep(1000);
                 lock (tcs)
                 {
                     if (tcs.Task.IsCompleted) return;
                     tcs.SetResult();
                 }
+                Thread.Sleep(1000);
                 UpdateStation(node.Value, plane);
                 UpdatePlane(plane, node.Value);
 
                 if (node.Previous != default)
                     foreach (var item in node.Previous)
-                        if (item.Value.Plane != default && item.Value.Plane.PlaneId == plane.PlaneId)
+                        if (item.Value.CurrentPlane != default && item.Value.CurrentPlane.PlaneId == plane.PlaneId)
                             UpdateStation(item.Value);
 
-                connectionToClient.Current.InvokeAsync("StationsStatus");
+                connectionToClient.InvokeAsync("StationsStatus");
                 Thread.Sleep(node.Value.StationDuration);
             }
-            EndFlight(node, plane);
+            EndStation(node, plane);
         }
 
-        private void EndFlight(Node<Station> node, Plane plane)
+        private void EndStation(Node<Station> node, Plane plane)
         {
             if (node.Next == default)
             {
@@ -144,8 +145,8 @@ namespace Airport.Backend.Methods
                 UpdatePlane(plane);
 
                 if (node.type == GraphType.Landing) planeService.Add(plane);
-                connectionToClient.Current.InvokeAsync("StationsStatus");
-                connectionToSimulator.Current.InvokeAsync("GetPlanes");
+                connectionToClient.InvokeAsync("StationsStatus");
+                connectionToSimulator.InvokeAsync("GetPlanes");
             }
             else
             {
@@ -160,7 +161,7 @@ namespace Airport.Backend.Methods
         /// </summary>
         /// <param name="station"></param>
         /// <param name="plane"></param>
-        private void UpdatePlane(Plane plane, Station station = null)
+        public void UpdatePlane(Plane plane, Station station = null)
         {
             if (station != null) plane.CurrentStationName = station.StationName;
             else plane.CurrentStationName = default;
@@ -172,9 +173,9 @@ namespace Airport.Backend.Methods
         /// </summary>
         /// <param name="plane"></param>
         /// <param name="station"></param>
-        private void UpdateStation(Station station, Plane plane = null)
+        public void UpdateStation(Station station, Plane plane = null)
         {
-            station.Plane = plane;
+            station.CurrentPlane = plane;
             stationService.Update(station);
 
             //Stations.Find(x => x.StationId == station.StationId).Plane = plane;

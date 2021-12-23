@@ -154,3 +154,10 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\obj\Debug\net
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\obj\Debug\net5.0\ref\AirPort.UnitTests.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\obj\Debug\net5.0\AirPort.UnitTests.pdb
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\obj\Debug\net5.0\AirPort.UnitTests.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.Azure.SignalR.Common.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.Azure.SignalR.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.Azure.SignalR.Protocols.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\Users\Nehor\Documents\GitHub\AirportSimulator\AirPort.UnitTests\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

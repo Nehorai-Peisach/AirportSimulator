@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using Airport.Models;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace Airport.Backend.Interfaces
 {
     public interface IServerToClient
     {
-        HubConnection Current { get; }
+        IMyConnection Current { get; }
     }
 }
