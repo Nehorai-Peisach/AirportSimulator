@@ -10,4 +10,3 @@ Desktop Web
 ![](Images/1.gif)
 In Phone
 ![](Images/3.png)
-![](Images/2.gif)
