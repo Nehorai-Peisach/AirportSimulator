@@ -2283,7 +2283,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Client": "5.0.13",
           "MongoDB.Bson": "2.14.1"
         },
         "compile": {
@@ -2314,7 +2313,7 @@
           "Airport.BLL": "1.0.0",
           "Airport.DAL": "1.0.0",
           "Airport.Models": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Client": "5.0.13",
+          "Microsoft.AspNetCore.SignalR.Client": "5.0.12",
           "Microsoft.Azure.SignalR": "1.4.0"
         },
         "compile": {

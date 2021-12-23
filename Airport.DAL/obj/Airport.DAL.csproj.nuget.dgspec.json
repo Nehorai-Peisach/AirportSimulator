@@ -112,10 +112,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.SignalR.Client": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.14.1, )"

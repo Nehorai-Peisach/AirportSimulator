@@ -37,4 +37,3 @@ D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Simulator\obj\Debug\net
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Simulator\bin\Debug\net5.0\MongoDB.Bson.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Simulator\bin\Debug\net5.0\Airport.Models.dll
 D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Simulator\bin\Debug\net5.0\Airport.Models.pdb
-D:\Users\Nehor\Documents\GitHub\AirportSimulator\Airport.Simulator\obj\Debug\net5.0\Airport.Simulator.csproj.CopyComplete
