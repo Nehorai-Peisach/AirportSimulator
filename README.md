@@ -1,8 +1,9 @@
 # AirportSimulator
 Simulate an airport stations according to the graph below
 Graph
+![](Images/0.png)
 
-#Some Images to See the simulator work:
+Here some Images to See the simulator work:
 Desktop Web
 ![](Images/1.png)
 ![](Images/2.png)
